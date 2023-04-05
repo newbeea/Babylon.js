@@ -267,12 +267,14 @@ export class RenderTargetWrapper {
 
                 const samplingModes: number[] = [];
                 const types: number[] = [];
+                const formats: number[] = [];
 
                 for (let i = 0; i < textureCount; ++i) {
                     const texture = textureArray[i];
 
                     samplingModes.push(texture.samplingMode);
                     types.push(texture.type);
+                    formats.push(texture.format);
                 }
 
                 const optionsMRT = {
@@ -282,6 +284,7 @@ export class RenderTargetWrapper {
                     generateStencilBuffer: this._generateStencilBuffer,
                     generateDepthTexture,
                     types,
+                    formats,
                     textureCount,
                 };
                 const size = {
